@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同步时钟偏差及PMU相量监测系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1 class="app-title">同步时钟偏差及<br>PMU相量监测系统</h1>
+        <div class="navigation-hint">窗口导航</div>
+        <ul class="nav">
+            <li><a href="index.html">数据监控</a></li>
+            <li><a href="link_summary.html">链路数据汇总分析</a></li>
+            <li><a href="statistics.html">数据统计</a></li>
+        </ul>
+        <div class="footer">
+            <span id="current-time">当前时间</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h2>数据监控</h2>
+            <div class="upload">
+                <label class="custom-file-upload">
+                    <input type="file" id="csvFileInput" accept=".csv">
+                    上传B码CSV表
+                </label>
+                <label class="custom-file-upload">
+                    <input type="file" id="excelFileInput" accept=".xls,.xlsx">
+                    上传电压XLSX表
+                </label>
+            </div>
+        </div>
+        <div class="charts">
+            <div class="chart-container">
+                <div class="pkg-left" id="zoom-btn1">
+                    <button id="resetCsvZoom">缩放重设</button>
+                </div>
+                <canvas id="csvChart"></canvas>
+                <div class="chart-overlay" id="csvOverlay" style="display: block;">
+                    <div class="flex">
+                        <div class="pak">
+                            <input type="number" id="csvBaselineInput" placeholder="输入B码基准点" style="margin-right:10px">
+                            <button id="csvBaselineConfirm">确认</button>
+                        </div>
+                        <div class="pak" style="margin: 5px;">
+                            <input type="number" id="csvThresholdInput" placeholder="输入阈值">
+                            <button id="csvThresholdConfirm">确认</button>
+                            状态:<div class="status-light" id="csvStatusLight"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="pkg-left" id="zoom-btn2">
+                    <button id="resetExcelZoom1">缩放重设</button>
+                </div>
+                <canvas id="excelChart1"></canvas>
+                <div class="chart-overlay" id="excelOverlay1" style="display: block;">
+                    <div class="flex">
+                        <div class="pak">
+                            <input type="number" id="excelThresholdInput1" placeholder="输入阈值">
+                            <button id="excelThresholdConfirm1">确认</button>
+                            状态:<div class="status-light" id="excelStatusLight1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="pkg-left" id="zoom-btn3">
+                    <button id="resetExcelZoom2">缩放重设</button>
+                </div>
+                <canvas id="excelChart2"></canvas>
+                <div class="chart-overlay" id="excelOverlay2" style="display: block;">
+                    <div class="flex">
+                        <div class="pak">
+                            <input type="number" id="excelThresholdInput2" placeholder="输入阈值">
+                            <button id="excelThresholdConfirm2">确认</button>
+                            状态:<div class="status-light" id="excelStatusLight2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@1.2.1"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

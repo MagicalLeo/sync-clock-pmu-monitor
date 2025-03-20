@@ -1,0 +1,46 @@
+{
+  "name": "sync-clock-pmu-monitor",
+  "version": "1.0.0",
+  "description": "Synchronized Clock Offset and PMU Phasor Monitoring System",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "chartjs-plugin-zoom": "^2.0.1"
+  },
+  "devDependencies": {
+    "electron": "^31.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "productName": "同步时钟偏差及PMU相量监测系统",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/icon.png",
+      "maintainer": "Leo Kao",
+      "synopsis": "Synchronized Clock Offset and PMU Phasor Monitoring System",
+      "description": "The Synchronized Clock Offset and PMU Phasor Monitoring System is an advanced solution designed to ensure precise time synchronization and real-time monitoring of phasor measurement units (PMUs). This system addresses critical needs in power system operations by providing accurate clock offset detection and comprehensive PMU phasor data analysis."
+    }
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同步时钟偏差及PMU相量监测系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1 class="app-title">同步时钟偏差及<br>PMU相量监测系统</h1>
+        <div class="navigation-hint">窗口导航</div>
+        <ul class="nav">
+            <li><a href="index.html">数据监控</a></li>
+            <li><a href="link_summary.html">链路数据汇总分析</a></li>
+            <li><a href="statistics.html">数据统计</a></li>
+        </ul>
+        <div class="footer">
+            <span id="current-time">当前时间</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="header">
+            <h2>数据统计</h2>
+            <div class="thresholds">
+                <p>B码阈值: <span id="csvThreshold"></span></p>
+                <!-- <p>电压一相角阈值: <span id="excelThreshold1"></span></p>
+                <p>电压二相角阈值: <span id="excelThreshold2"></span></p> -->
+                <p>相角差阈值: <span id="excelThreshold3"></span></p>
+            </div>
+        </div>
+        <div class="exceed-logs">
+            <h3>超出阈值的数据</h3>
+            <div class="log-container">
+                <h4>CSV B碼 <button onclick="toggleVisibility('csvTableBody', this)">缩小</button></h4>
+                <table id="csvTable">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>数值</th>
+                        </tr>
+                    </thead>
+                    <tbody id="csvTableBody"></tbody>
+                </table>
+            </div>
+            <!-- <div class="log-container">
+                <h4>电压一相角 <button onclick="toggleVisibility('excelTableBody1', this)">缩小</button></h4>
+                <table id="excelTable1">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>数值</th>
+                        </tr>
+                    </thead>
+                    <tbody id="excelTableBody1"></tbody>
+                </table>
+            </div>
+            <div class="log-container">
+                <h4>电压二相角 <button onclick="toggleVisibility('excelTableBody2', this)">缩小</button></h4>
+                <table id="excelTable2">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>数值</th>
+                        </tr>
+                    </thead>
+                    <tbody id="excelTableBody2"></tbody>
+                </table>
+            </div> -->
+            <div class="log-container">
+                <h4>相角差 <button onclick="toggleVisibility('excelTableBody3', this)">缩小</button></h4>
+                <table id="excelTable3">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>数值</th>
+                        </tr>
+                    </thead>
+                    <tbody id="excelTableBody3"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="statistics.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@2.0.0"></script>
+</body>
+</html>

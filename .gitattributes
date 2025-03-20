@@ -1,0 +1,2 @@
+dist/*.exe filter=lfs diff=lfs merge=lfs -text
+dist/*.rar filter=lfs diff=lfs merge=lfs -text
